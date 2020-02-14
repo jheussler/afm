@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adimeo File Manager{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <div class="uppy-dashboard"></div>
+        <div class="uppy-dragdrop"></div>
+
+        <input type="text" placeholder="Search..." />
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>/</th>
+                    <th>Name</th>
+                    <th>Size</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for dir in directories %}
+                    <tr class="goToDir" data-id="{{ dir.id }}">
+                        <td>DIR</td>
+                        <td>{{ dir.name }}</td>
+                        <td>-</td>
+                    </tr>
+                {% endfor %}
+
+                {% for file in files %}
+                    <tr>
+                        <td>FILE</td>
+                        <td>{{ file.filename }}.{{ file.extension }}</td>
+                        <td>{{ file.size }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {{ encore_entry_link_tags('upload') }}
+    {{ encore_entry_script_tags('upload') }}
+{% endblock %}

@@ -2,11 +2,24 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}Adimeo File Manager{% endblock %}</title>
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+
+        {{ encore_entry_link_tags('app') }}
+
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <main>
+            {% if user is defined %}
+                {% block header %}{{ include('menu.html.twig') }}{% endblock %}
+            {% endif %}
+            <div class="layout {% block layoutClass %}{% endblock %}">
+                {% block body %}{% endblock %}
+            </div>
+        </main>
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
     </body>
 </html>

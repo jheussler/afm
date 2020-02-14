@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Adimeo File Manager{% endblock %}
+
+{% block body %}
+    <div class="wrapper">
+        <table class="table table-striped table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>First name</th>
+                    <th>Last name</th>
+                    <th>Email</th>
+                    <th>Groups</th>
+                    <th>Status</th>
+                    <th>Is admin</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users  %}
+                    <tr>
+                        <td>{{ user.firstName|capitalize }}</td>
+                        <td>{{ user.lastName|capitalize }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>
+                            {% if user.groups is not empty %}
+                                {% for group in user.groups %}
+                                    {{ group.name }}<br />
+                                {% endfor %}
+                            {% endif %}
+                        </td>
+                        <td>{% if user.status %}Active{% else %}Inactive{% endif %}</td>
+                        <td>{% if user.isAdmin %}Yes{% endif %}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}

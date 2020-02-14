@@ -1,0 +1,21 @@
+body {
+    background-color: #000000 !important;
+}
+
+.login_form{
+    width:600px;
+    height:300px;
+    margin:auto;
+    margin-top:10%;
+    border-radius: 4px;
+    background-color: #ffffff;
+    padding:10px;
+}
+
+.wrapper {
+    min-height:30em;
+    background-color: #FFFFFF;
+    padding:1%;
+}
+
+

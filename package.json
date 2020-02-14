@@ -1,0 +1,23 @@
+{
+    "devDependencies": {
+        "@symfony/webpack-encore": "^0.28.2",
+        "core-js": "^3.0.0",
+        "regenerator-runtime": "^0.13.2",
+        "webpack-notifier": "^1.6.0"
+    },
+    "license": "UNLICENSED",
+    "private": true,
+    "scripts": {
+        "dev-server": "encore dev-server",
+        "dev": "encore dev",
+        "watch": "encore dev --watch",
+        "build": "encore production --progress"
+    },
+    "dependencies": {
+        "@uppy/core": "^1.8.1",
+        "@uppy/dashboard": "^1.6.1",
+        "@uppy/drag-drop": "^1.4.4",
+        "@uppy/tus": "^1.5.4",
+        "@uppy/xhr-upload": "^1.5.1"
+    }
+}
